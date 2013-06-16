@@ -1,7 +1,7 @@
 glNetViz Examples
 =================
 
-The following are application examples of the glNetViz.  Take a look at the demo:
+The following are applied examples of the glNetViz.  Take a look at the demo:
 
 * [http://gpp256.zapto.org/glNetViz/examples/](http://gpp256.zapto.org/glNetViz/examples/)
 
