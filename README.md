@@ -6,10 +6,13 @@ The following are applied examples of the glNetViz.  Take a look at the demo:
 * [http://gpp256.zapto.org/glNetViz/examples/](http://gpp256.zapto.org/glNetViz/examples/)
 
 e.g.
+
 glNetViz + jqPlot:
+
 ![http://gpp256.zapto.org/glNetViz/examples/jqplot01_640.png](http://gpp256.zapto.org/glNetViz/examples/jqplot01_640.png)
 
 glNetViz + sDashboard:
+
 ![http://gpp256.zapto.org/glNetViz/examples/sdashboard01_640.png](http://gpp256.zapto.org/glNetViz/examples/sdashboard01_640.png)
 
 Setup
