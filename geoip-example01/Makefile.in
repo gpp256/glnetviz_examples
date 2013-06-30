@@ -1,0 +1,25 @@
+prefix= @prefix@
+INSTALL = @INSTALL@
+TARGET= get_geolocation.built
+
+.SUFFIXES: .built .cgi
+
+all: $(TARGET)
+
+.cgi.built:
+	@touch $(TARGET)
+
+install: $(TARGET)
+	mkdir -p @prefix@/examples/geoip-example01
+	tar --exclude=Makefile --exclude=.git --exclude=htaccess --exclude=scripts --exclude=README.md -cf - . | \
+	tar -C @prefix@/examples/geoip-example01 -xvf - >/dev/null 2>&1
+	-test -d @prefix@/examples/geoip-example01/lib || \
+	(cd scripts; sh install_geoip.sh @prefix@)
+	-test -f @prefix@/examples/geoip-example01/lib/GeoLiteCity.dat || \
+	(cd scripts; sh getdb.sh @prefix@)
+
+clean:
+	-(cd scripts; rm -rf geoip-api-perl)
+	-test -f "$(TARGET)" && rm -f $(TARGET) || :
+
+

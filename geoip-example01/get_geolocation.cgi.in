@@ -1,0 +1,71 @@
+#!@CMD_PERL@
+#
+# get_objpos.cgi
+#
+# Copyright (c) 2013 Yoshi 
+# This software is distributed under the MIT License.(../../MIT-LICENSE.txt)
+#
+
+use lib qw( lib/perl5/site_perl/ );
+use CGI qw(param);
+use Geo::IP;
+use JSON::PP;
+
+# ------------------------------------------
+# main routine
+# ------------------------------------------
+my $ipaddr = param('ip');
+my $id = param('id');
+$ipaddr = &ckIPv4Addr($ipaddr);
+$id = &ckNum($id);
+
+my $gi = Geo::IP->open( "lib/GeoLiteCity.dat", GEOIP_MEMORY_CACHE );
+my $r = $gi->record_by_name($ipaddr);
+if ($r) {
+	my $output = {
+		id 	=> $id,
+		c_code	=> $r->country_code,
+		city	=> (defined $r->city) ? $r->city : '',
+		lat	=> $r->latitude,
+		lon	=> $r->longitude,
+		ipaddr	=> $ipaddr,
+		ret	=> 0,
+	};
+	&printResult(encode_json $output)
+} else {
+	&printResult('{ "ret": 3 }', 3)
+}
+exit 0;
+
+# ------------------------------------------
+# Sub routines
+# ------------------------------------------
+sub ckIPv4Addr {
+	my $addr = shift;
+	$addr =~ s/\s+//g; 
+	unless ($addr =~ /^((([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$/) {
+	&printResult('{ "ret": 1 }', 1) 
+	}
+	return $1;
+};
+sub ckNum {
+	my $num = shift;
+	$num =~ s/\s+//g; 
+	&printResult('{ "ret": 2 }', 2) unless ($num =~ /^(\-?\d+\.?\d*)$/);
+	return $1;
+};
+sub printResult {
+	my $lines = shift;
+	my $ret = shift || 0;
+	print <<END_OF_LINE;
+Content-Type: application/json, charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 1728000
+
+$lines
+END_OF_LINE
+	exit(1);
+}
+__END__

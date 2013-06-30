@@ -1,0 +1,1 @@
+0 1 * * 3 /etc/cron.d/getdb.sh /opt/glNetViz >/dev/null 2>&1

@@ -1,0 +1,24 @@
+#!/bin/sh
+DB_FILE=GeoLiteCity.dat
+CURL=@CMD_CURL@
+GZIP=@CMD_GZIP@
+HTTP_PROXY=
+
+if [ $# -ne 1 ] ; then
+	echo "Usage: $0 GLNETVIZ_INSTALL_PATH"; 
+	echo "e.g. $0 /opt/glNetViz"; exit 1
+fi
+cd ${1}/examples/geoip-example01/lib
+if [ "x$HTTP_PROXY" = "x" ] ; then
+$CURL -o ${DB_FILE}.gz http://geolite.maxmind.com/download/geoip/database/${DB_FILE}.gz
+else
+$CURL -x $HTTP_PROXY -o ${DB_FILE}.gz http://geolite.maxmind.com/download/geoip/database/${DB_FILE}.gz
+fi
+if [ $? -eq 0 ] ; then
+$GZIP -dc ${DB_FILE}.gz > tmp.dat; mv -f tmp.dat $DB_FILE
+rm -f ${DB_FILE}.gz
+else 
+echo "Error: failed to fetch a db-file.: $DB_FILE"
+exit 1
+fi
+exit 0

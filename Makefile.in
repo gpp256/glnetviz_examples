@@ -1,0 +1,27 @@
+prefix= @prefix@
+INSTALL = @INSTALL@
+TARGET = configure.built 
+EXAMPLES = geoip-example01 jqplot-example01 sdashboard-example01
+
+.SUFFIXES: .built .ac
+
+all: $(TARGET)
+
+.ac.built:
+	for d in $(EXAMPLES) ; do (cd $$d; make); done
+	@touch configure.built
+
+install: $(TARGET)
+	mkdir -p @prefix@/examples 
+	for d in $(EXAMPLES) ; do (cd $$d; make install); done
+	find @prefix@/examples -type f -exec chmod 644 {} \;
+	find @prefix@/examples -name "*.pl" -exec chmod 755 {} \;
+	find @prefix@/examples -name "*.cgi" -exec chmod 755 {} \;
+	find @prefix@/examples -name "*.in" -exec rm -f {} \;
+	find @prefix@/examples -name "*.built" -exec rm -f {} \;
+	$(INSTALL) -m640 geoip-example01/htaccess @prefix@/examples/geoip-example01/.htaccess
+
+clean:
+	@for d in $(EXAMPLES) ; do (cd $$d; make clean); done
+	@test -f $(TARGET) && rm -f $(TARGET) || :
+

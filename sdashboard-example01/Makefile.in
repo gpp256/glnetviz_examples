@@ -1,0 +1,19 @@
+prefix= @prefix@
+INSTALL = @INSTALL@
+TARGET= get_flow.built
+
+.SUFFIXES: .built .cgi
+
+all: $(TARGET)
+
+.cgi.built:
+	@touch $(TARGET)
+
+install: $(TARGET)
+	mkdir -p @prefix@/examples/sdashboard-example01
+	tar --exclude=Makefile --exclude=.git -cf - . | \
+	tar -C @prefix@/examples/sdashboard-example01 -xvf - >/dev/null 2>&1
+
+clean:
+	-test -f "$(TARGET)" && rm -f $(TARGET) || :
+
