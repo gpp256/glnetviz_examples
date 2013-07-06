@@ -1,7 +1,7 @@
 prefix= @prefix@
 INSTALL = @INSTALL@
 TARGET = configure.built 
-EXAMPLES = geoip-example01 jqplot-example01 sdashboard-example01
+EXAMPLES = geoip-example01 jqplot-example01 sdashboard-example01 mmglu-example01
 
 .SUFFIXES: .built .ac
 
