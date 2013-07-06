@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 #AC_PREREQ([2.69])
-AC_INIT([glnetviz_examples], [0.91], [@gpp256])
+AC_INIT([glnetviz_examples], [0.92], [@gpp256])
 
 # Checks for programs.
 AC_PROG_INSTALL
@@ -31,5 +31,7 @@ AC_CONFIG_FILES([Makefile
                  jqplot-example01/get_objs.cgi
                  sdashboard-example01/Makefile
                  sdashboard-example01/get_objs.cgi
+                 mmglu-example01/Makefile
+                 mmglu-example01/get_objs.cgi
 ])
 AC_OUTPUT
