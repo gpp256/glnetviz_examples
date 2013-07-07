@@ -27,6 +27,8 @@ AC_CONFIG_FILES([Makefile
                  geoip-example01/get_geolocation.cgi
                  geoip-example01/scripts/getdb.sh
                  geoip-example01/scripts/install_geoip.sh
+                 geoip-example02/Makefile
+                 geoip-example02/get_objpos.cgi
                  jqplot-example01/Makefile
                  jqplot-example01/get_objs.cgi
                  sdashboard-example01/Makefile

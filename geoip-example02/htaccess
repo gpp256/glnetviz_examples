@@ -1,0 +1,4 @@
+<FilesMatch "(\.3|\.dat|\.conf|\.pl|\.pm|\.so|\.bs|\.packlist|\.pod)$">
+Order Deny,Allow
+deny from all
+</FilesMatch>

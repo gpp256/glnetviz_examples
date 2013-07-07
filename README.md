@@ -23,6 +23,10 @@ glNetViz + mmglu:
 
 ![http://gpp256.zapto.org/glNetViz/examples/mmglu01_640.png](http://gpp256.zapto.org/glNetViz/examples/mmglu01_640.png)
 
+glNetViz + Vimage Jail + fluentd + MongoDB:
+
+![http://gpp256.zapto.org/glNetViz/examples/geoip02_640.png](http://gpp256.zapto.org/glNetViz/examples/geoip02_640.png)
+
 Setup
 -----
 

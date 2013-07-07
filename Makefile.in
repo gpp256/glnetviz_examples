@@ -1,7 +1,7 @@
 prefix= @prefix@
 INSTALL = @INSTALL@
 TARGET = configure.built 
-EXAMPLES = geoip-example01 jqplot-example01 sdashboard-example01 mmglu-example01
+EXAMPLES = geoip-example01 geoip-example02 jqplot-example01 sdashboard-example01 mmglu-example01
 
 .SUFFIXES: .built .ac
 
@@ -20,6 +20,7 @@ install: $(TARGET)
 	find @prefix@/examples -name "*.in" -exec rm -f {} \;
 	find @prefix@/examples -name "*.built" -exec rm -f {} \;
 	$(INSTALL) -m640 geoip-example01/htaccess @prefix@/examples/geoip-example01/.htaccess
+	$(INSTALL) -m640 geoip-example02/htaccess @prefix@/examples/geoip-example02/.htaccess
 
 clean:
 	@for d in $(EXAMPLES) ; do (cd $$d; make clean); done

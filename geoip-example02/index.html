@@ -1,0 +1,106 @@
+<!--
+ index.html ver.1.0
+
+ Copyright (c) 2013 Yoshi 
+ This software is distributed under the MIT License.(../../MIT-LICENSE.txt)
+-->
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<title>WebGL and jQuery - sample09 </title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta content="chrome=1" http-equiv="X-UA-Compatible" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="Sat, 31 Aug 2000 17:35:42 GMT">
+<!-- global variables -->
+<script type="text/javascript" src="global.js"></script>
+<!-- common libraries -->
+<link type="text/css" rel="stylesheet" href="../../lib/css/jquery-ui-1.css">
+<link type="text/css" rel="stylesheet" href="../../lib/css/jslider.css">
+<script type="text/javascript" src="../../lib/js/jquery-1.7.min.js"> </script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery.sprintf.js"></script>
+<script type="text/javascript" src="../../lib/js/minMatrix.js"></script>
+<script type="text/javascript" src="../../lib/js/glNetViz.min.js"></script>
+<script type="text/javascript" src="../../lib/js/mouse_event.js"></script>
+<!-- scripts for geoip-example02 -->
+<link type="text/css" rel="stylesheet" href="webui.css">
+<script type="text/javascript" src="../common.js"> </script>
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+<!-- left ui -->
+<div id="framerate" style="font-size: x-small"></div>
+<div id="displayinfo" style="font-size: xx-small; "> 
+<font size"+0" color="red"><b>&lt;-</b></font> TCP Packets<br>
+<font size"+0" color="blue"><b>&lt;-</b></font> UDP Packets<br>
+<font size"+0" color="mazenda">&lt;-</b></font> ICMP Packets<br>
+</div>
+<div id="objinfo" style="font-size: x-small">
+Selected Host:<br>
+<span id="slonlat"> </span><br>
+<span id="shostip"> </span><br>
+<span id="slocation"> </span>
+</div>
+<!-- left ui -->
+<table><tr>
+<td nowrap> <canvas id="canvas"></canvas> </td>
+<td nowrap valign="top" style="font-size: x-small; margin: 20px">
+<b><font size="+1">Drawing Parameters</font></b>
+<hr>
+
+<p />
+
+<form name="search_form" action="?" method="GET">
+<table style="padding-top: 5pt" width="100%">
+<tr><td nowrap>
+
+<b>Play/Stop:</b> <p>
+<p class="switch">
+<label id="switch-play" class="switch-play selected"><span>Play</span></label>
+<label id="switch-stop" class="switch-stop"><span>Stop</span></label>
+</p>
+<br><br>
+<br><br>
+<p>
+<b>Playback Speed:</b> <p>
+<div>
+  <select name="speed" id="speed" size="2" style="width: 60%" onChange="changePlaybackSpeed(this);">
+   <option value="0">x900
+   <option value="1">x1800
+   <option value="2" selected>x3600
+  </select>
+</div>
+<br>
+<p>
+<b>Change Time(s):</b> <p>
+<input type="button" name="next_day" value="+86400" onClick="g.nextday_flag=1;">
+<input type="button" name="prev_day" value="-86400" onClick="g.prevday_flag=1;">
+<br><br>
+<p>
+<b>Reset Time:</b> <p>
+<input type="button" name="reset" value="Reset" onClick="g.reset_flag=1;">
+
+</td></tr>
+</table>
+</form>
+<p>
+<div id="result"> </div>
+<pre id="geolocation"> 
+</pre>
+
+</td>
+<tr></table>
+<!-- right ui -->
+<div id="uiContainer"> <div id="ui"> </div> </div>
+<div id="scale_slider">:    1</div>
+<div id="xaxis_rotation_slider">:    1</div>
+<div id="timer">Time: 2013-06-01 00:00:00</div>
+<!-- right ui -->
+<div id="debug"></div>
+</body>
+</html>
