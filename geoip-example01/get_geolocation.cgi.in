@@ -1,6 +1,6 @@
 #!@CMD_PERL@
 #
-# get_objpos.cgi
+# get_geolocation.cgi
 #
 # Copyright (c) 2013 Yoshi 
 # This software is distributed under the MIT License.(../../MIT-LICENSE.txt)
@@ -14,8 +14,15 @@ use JSON::PP;
 # ------------------------------------------
 # main routine
 # ------------------------------------------
-my $ipaddr = param('ip');
-my $id = param('id');
+my $ipaddr = '';
+my $id = '';
+if ($ENV{REQUEST_METHOD} eq 'GET' || $ENV{REQUEST_METHOD} eq 'POST') {
+	$ipaddr = param('ip'); $id = param('id');
+} else {
+	if (@ARGV != 2) { print "Usage: $0 id ipaddress\n"; exit 1; }
+	$id = $ARGV[0];
+	$ipaddr = $ARGV[1]; 
+}
 $ipaddr = &ckIPv4Addr($ipaddr);
 $id = &ckNum($id);
 
@@ -66,6 +73,6 @@ Access-Control-Max-Age: 1728000
 
 $lines
 END_OF_LINE
-	exit(1);
+	exit($ret);
 }
 __END__
