@@ -6,6 +6,7 @@ The steps to analyze the access log of Apache are as follows.
 
     # sudo -u admin fluentd -c ~admin/tools/fluentd/fluentd_accesslog.conf -o ~admin/tools/fluentd/apache01.log -d ~admin/tools/fluentd/apache01.pid
     
+    $ vi map_reduce_accesslog.js
     $ time cat map_reduce_accesslog.js | mongo --quiet 10.1.1.10:40000/admin 2>/dev/null | tee map_reduce_apache.log
 
     $ time perl create_cgi.pl | tee apache01.cgi
