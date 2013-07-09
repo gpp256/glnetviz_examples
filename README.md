@@ -27,6 +27,10 @@ glNetViz + Vimage Jail + fluentd + MongoDB:
 
 ![http://gpp256.zapto.org/glNetViz/examples/geoip02_640.png](http://gpp256.zapto.org/glNetViz/examples/geoip02_640.png)
 
+glNetViz + 2D Map:
+
+![http://gpp256.zapto.org/glNetViz/examples/geoip03_640.png](http://gpp256.zapto.org/glNetViz/examples/geoip03_640.png)
+
 Setup
 -----
 

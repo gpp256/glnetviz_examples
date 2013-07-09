@@ -1,0 +1,65 @@
+<!--
+ sample.html ver.1.0
+
+ Copyright (c) 2013 Yoshi 
+ This software is distributed under the MIT License.(../../MIT-LICENSE.txt)
+-->
+
+<html>
+<head>
+<title>WebGL and jQuery - sample07 </title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta content="chrome=1" http-equiv="X-UA-Compatible" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="Sat, 31 Aug 2000 17:35:42 GMT">
+<!-- global variables -->
+<script type="text/javascript" src="global.js"></script>
+<!-- common libraries -->
+<link type="text/css" rel="stylesheet" href="../../lib/css/jquery-ui-1.css">
+<link type="text/css" rel="stylesheet" href="../../lib/css/jslider.css">
+<script type="text/javascript" src="../../lib/js/jquery-1.7.min.js"> </script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery.sprintf.js"></script>
+<script type="text/javascript" src="../../lib/js/minMatrix.js"></script>
+<script type="text/javascript" src="../../lib/js/glNetViz.min.js"></script>
+<script type="text/javascript" src="../../lib/js/mouse_event.js"></script>
+<!-- scripts for geoip-example03 -->
+<link type="text/css" rel="stylesheet" href="webui.css">
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+<!-- left ui -->
+<div id="framerate" style="font-size: x-small"></div>
+<div id="displayinfo" style="font-size: xx-small; "> </div>
+<div id="objinfo" style="font-size: x-small">
+Selected Objects: <br>
+<span id="srcinfo">src_ip=a.b.1.1, src_port=2000, </span><br>
+<span id="dstinfo">dst_ip=c.d.1.1, dst_port=21, </span><br>
+<span id="pktinfo">proto=6, n_packets=392, n_octets=2930, </span><br>
+<span id="location">latitude=30.0, longitude=31.2 </span>
+</div>
+<!-- left ui -->
+<table><tr>
+<td nowrap> <canvas id="canvas"></canvas> </td>
+<td nowrap valign="top" style="font-size: x-small; margin: 20px">
+<b><font size="+1">Drawing Parameters</font></b>
+<hr>
+<br>
+<b>Toggle Perspective/Orthographic:</b> <p>
+<p class="switch">
+<label id="perspective-enable" class="perspective-enable"><span>Perspective</span></label>
+<label id="perspective-disable" class="perspective-disable selected"><span>Orthographic</span></label>
+</p>
+</td>
+<tr></table>
+<!-- right ui -->
+<div id="uiContainer"> <div id="ui"> </div> </div>
+<div id="scale_slider">:    1</div>
+<div id="xaxis_rotation_slider">:    1</div>
+<!-- right ui -->
+<pre id="debug"></pre>
+</body>
+</html>

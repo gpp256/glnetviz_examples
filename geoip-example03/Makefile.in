@@ -1,0 +1,19 @@
+prefix= @prefix@
+INSTALL = @INSTALL@
+TARGET= ajax.built
+
+.SUFFIXES: .built .js
+
+all: $(TARGET)
+
+.js.built:
+	@touch $(TARGET)
+
+install: $(TARGET)
+	mkdir -p @prefix@/examples/geoip-example03
+	tar --exclude=Makefile --exclude=.git -cf - . | \
+	tar -C @prefix@/examples/geoip-example03 -xvf - >/dev/null 2>&1
+
+clean:
+	-test -f "$(TARGET)" && rm -f $(TARGET) || :
+
