@@ -46,3 +46,5 @@ Links
 
 users guide(en): http://gpp256.zapto.org/glNetViz/docs/en/html/index.html  
 users guide(ja): http://gpp256.zapto.org/glNetViz/docs/ja/html/index.html  
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/a795a5a0e6a6198eef2cc4d06082a64d "githalytics.com")](http://githalytics.com/gpp256/glnetviz_examples)
