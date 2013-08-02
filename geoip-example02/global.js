@@ -68,7 +68,7 @@ var g = {
 	stop_flag: 0,
 	reset_flag: 0,
 	read_accesslog: 0,
-	playback_speed: 2,
+	playback_speed: 1,
 	accesslog: {},
 	last_time: '2013-05-31 23'
 };
